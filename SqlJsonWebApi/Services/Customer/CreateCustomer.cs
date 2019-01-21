@@ -30,8 +30,8 @@ namespace SqlJsonWebApi.Services.Customer
         }
         public async Task<int> Handler(Models.Customer customer)
         {
-            //You can AutoMapper for this
-            var customerInsertModel = new CustomerInsertModel()
+            //TODO: Validate this command 
+            var customerInsertModel = new
             {
                 Name = customer.Name,
                 Active = customer.Active,

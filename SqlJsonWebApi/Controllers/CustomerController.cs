@@ -31,14 +31,7 @@ namespace SqlJsonWebApi.Controllers
         {
             return await _getCustomers.Handler(new Query() {Id =id });
         }
-
-        //// GET: api/Customer/5
-        //[HttpGet("{id}", Name = "Get")]
-        //public string Get()
-        //{
-        //    return "value";
-        //}
-
+        
         // POST: api/Customer
         [HttpPost]
         public async Task<int> Post(Customer customer)

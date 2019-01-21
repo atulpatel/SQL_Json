@@ -47,8 +47,11 @@ namespace SqlJsonWebApi.Services.Customer
                     Id= item.Id,
                     Name= item.Name,
                     Active = item.Active,
-                    CustomerContacts = JsonConvert.DeserializeObject<List<Models.CustomerContact>>(item.CustomerContacts??string.Empty)
-                    //CustomerContacts = JsonConvert.DeserializeObject<dynamic>(item.CustomerContacts ?? string.Empty)
+                    //Customer Contact Fixed
+                    //CustomerContacts = JsonConvert.DeserializeObject<List<Models.CustomerContact>>(item.CustomerContacts??string.Empty)
+
+                    //Customer Contact Dynamic
+                    CustomerContacts = JsonConvert.DeserializeObject<dynamic>(item.CustomerContacts ?? string.Empty)
                 });
             }
             return response;

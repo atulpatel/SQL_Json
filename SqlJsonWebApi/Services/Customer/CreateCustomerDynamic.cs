@@ -14,9 +14,10 @@ namespace SqlJsonWebApi.Services.Customer
         public int Id { get; set; }
         public string Name { get; set; }
         public bool Active { get; set; }
-
         public dynamic CustomerContacts { get; set; }
     }
+
+
     public interface ICreateCustomerDynamic
     {
         Task<int> Handler(CreateCustomerCommand customer);
@@ -31,7 +32,7 @@ namespace SqlJsonWebApi.Services.Customer
         }
         public async Task<int> Handler(CreateCustomerCommand customer)
         {
-            //You can AutoMapper for this
+            //TODO: add validation.
             var customerInsertModel = new
             {
                 Name = customer.Name,
@@ -54,8 +55,6 @@ namespace SqlJsonWebApi.Services.Customer
                 connection.Open();
                 return await connection.QuerySingleAsync<int>(sql, customerInsertModel);
             }
-
-        }
-       
+        }       
     }
 }
